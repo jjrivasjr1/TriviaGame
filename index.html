@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Trivia Game</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<button id="start">START</button>
+	<button id="stop">STOP</button>
+	<button id="reset">RESET</button>
+	<div id="display">00:00</div>
+	<form name="quizForm" onsubmit="return submitAnswers()">
+		<h3>1. what year is Philip J. Fry originaly from?</h3>
+		<input type="radio" name="q1" value="a" id="q1a">a. 1956   
+		<input type="radio" name="q1" value="b" id="q1b">b. 1995   
+		<input type="radio" name="q1" value="c" id="q1c">c. 3000   
+		<input type="radio" name="q1" value="d" id="q1d">d. 2000  
+
+		<h3>2. What what means of transportation did Fry use to save the universe from the brain alien race?</h3>
+		<input type="radio" name="q2" value="a" id="q2a">a. Ferrari  
+		<input type="radio" name="q2" value="b" id="q2b">b. Planet express ship   
+		<input type="radio" name="q2" value="c" id="q2c">c. Scouty Puffy Sr.   
+		<input type="radio" name="q2" value="d" id="q2d">d. jet pack  
+
+		<h3>3. what kind of robot is Bender</h3>
+		<input type="radio" name="q3" value="a" id="q3a">a. assasin   
+		<input type="radio" name="q3" value="b" id="q3b">b. burgler  
+		<input type="radio" name="q3" value="c" id="q3c">c. bending unit  
+		<input type="radio" name="q3" value="d" id="q3d">d. made especially for Fry's friendship 
+
+		<h3>4. how are professor Farnsworth and Fry related?</h3>
+		<input type="radio" name="q4" value="a" id="q4a">a. Uncle   
+		<input type="radio" name="q4" value="b" id="q4b">b.grandpa  
+		<input type="radio" name="q4" value="c" id="q4c">c. brother   
+		<input type="radio" name="q4" value="d" id="q4d">d. nephew  
+
+		<h3>5. what is Hermes olymipic sport?</h3>
+		<input type="radio" name="q5" value="a" id="q5a">a. track   
+		<input type="radio" name="q5" value="b" id="q5b">b. polevault   
+		<input type="radio" name="q5" value="c" id="q5c">c. swimming   
+		<input type="radio" name="q5" value="d" id="q5d">d. limbo 
+		<br><br>
+		<input type="submit" value="Submit Answers">
+		</form>
+
+</div>
+
+
+<script type="text/javascript" src="assets/javascript/app.js"></script>	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+body{
+	/*background-image: url("https://vignette.wikia.nocookie.net/en.futurama/images/1/1f/Futurama-cast.png/revision/latest/scale-to-width-down/963?cb=20150208160932");*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	justify-content: center;
+	text-align:center;
+	color:blue;
+}
+
+.container {
+	border: 4px solid green;
+}
