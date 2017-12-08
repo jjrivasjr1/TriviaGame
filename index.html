@@ -9,13 +9,20 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-
-<div class="container">
-	<button id="start">START</button>
+<button id="start">START</button>
 	<button id="stop">STOP</button>
 	<button id="reset">RESET</button>
-	<div id="display">00:00</div>
-	<form name="quizForm" onsubmit="return submitAnswers()">
+	<div id="missed"></div>
+	<div id="results"></div>
+<div class="container">
+	
+	
+
+	
+
+
+	<form name="quizForm" class="hidden" onsubmit="return submitAnswers()">
+		<div id="display">00:00</div>
 		<h3>1. what year is Philip J. Fry originaly from?</h3>
 		<input type="radio" name="q1" value="a" id="q1a">a. 1956   
 		<input type="radio" name="q1" value="b" id="q1b">b. 1995   
