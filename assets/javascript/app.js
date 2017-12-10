@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var number = 30;
+	var number = 100;
 
     //  Variable that will hold our interval ID when we execute
     //  the "run" function
@@ -48,7 +48,7 @@ $(document).ready(function() {
       //  We just pass the name of the interval
       //  to the clearInterval function.
       clearInterval(intervalId);
-      number = 30;
+      number = 100;
       score=0;
     }
 
@@ -61,7 +61,7 @@ $(document).ready(function() {
     stop();	
 	var total = 16;
 	var score = 0;
-	number = 30;
+	number = 100;
 
 	//get user input
 
@@ -84,14 +84,14 @@ $(document).ready(function() {
 
 	// validation
 
-	// for(i = 1; i <= total; i++){
-	// 	if(eval("q"+ i)  == null || eval("q"+ i) == ''){
-	// 		$("#missed").html("<h3>YOU MISSED QUERSTION <span>"+ i+"</span></h3>");
+	for(i = 1; i <= total; i++){
+		if(eval("q"+ i)  == null || eval("q"+ i) == ''){
+			$("#missed").html("<h3>YOU MISSED QUERSTION <span>"+ i+"</span></h3>");
 
-	// 		return false;
-	// 	}
+			return false;
+		}
 
-	// }
+	}
 
 
 	//set correct answers
@@ -127,54 +127,3 @@ $(document).ready(function() {
 
 
 
-// function submitAnswers () {
-
-// 	var total = 16;
-// 	var score = 0;
-
-// 	//get user input
-
-// 	var q1 = document.forms["quizForm"]["q1"].value;
-// 	var q2 = document.forms["quizForm"]["q2"].value;
-// 	var q3 = document.forms["quizForm"]["q3"].value;
-// 	var q4 = document.forms["quizForm"]["q4"].value;
-// 	var q5 = document.forms["quizForm"]["q5"].value;
-// 	var q6 = document.forms["quizForm"]["q6"].value;
-// 	var q7 = document.forms["quizForm"]["q7"].value;
-// 	var q8 = document.forms["quizForm"]["q8"].value;
-// 	var q9 = document.forms["quizForm"]["q9"].value;
-// 	var q10 = document.forms["quizForm"]["q10"].value;
-// 	var q11 = document.forms["quizForm"]["q11"].value;
-// 	var q12 = document.forms["quizForm"]["q12"].value;
-// 	var q13 = document.forms["quizForm"]["q13"].value;
-// 	var q14 = document.forms["quizForm"]["q14"].value;
-// 	var q15 = document.forms["quizForm"]["q15"].value;
-// 	var q16 = document.forms["quizForm"]["q16"].value;
-
-// 	// validation
-
-// 	for(i = 1; i <= total; i++){
-// 		if(eval("q"+ i)  == null || eval("q"+ i) == ''){
-// 			$("#missed").html("<h3>YOU MISSED QUERSTION <span>"+ i+"</span></h3>");
-
-// 			return false;
-// 		}
-
-// 	}
-
-
-	//set correct answers
-	// var answers = ['d', 'c', 'c', 'd', 'd'];
-
-	// //check answers
-	// 	for(i = 1; i <= total; i++){
-	// 		if(eval("q"+ i)== answers[i-1]) {
-	// 			score++;
-	// 		}	
-	// 	}
-	// 	// Display Results
-	// 	$("#results").html("<h3>YOU SCORED <span>"+score+"</span> OUT OF <span>"+total+"</span></h3>");
-
-	// 	return false;
-
-	// }
