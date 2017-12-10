@@ -1,82 +1,67 @@
-window.onload = function () {
-	$("#start").click(function() {
-		stopWatch.start();
-		(".hidden").toggle();
-		// $(".hidden").css("display", "inline");
-	});
-	$("#stop").click(stopWatch.stop);
-	$("#reset").click(stopWatch.reset);
-};
- // stop Watch object
-var stopWatch = {
-	time:0,
-	lap:1,
-	reset: function () {
-		stopWatch.time = 0;
-		// stopwatch.lap = 1;
-		//TODO: change the "display" div to "00:00"
-	},
-	start: function () {
-		//TODO: Use setInterval to start the count here.
-		// $(".hidden").css("display","block");
-		// $('.hidden').toggle();
-		$('.hidden').addClass('show').removeClass('hidden');
-		counter = setInterval(stopWatch.count, 1000);
+$(document).ready(function() {
+	var number = 30;
 
-		// $(".hidden").click(show());
-		// // var hiddenInputs = document.getElementsById("hidden");
-		// // this.style.display = "block";
-		// function show() {
-		// 	if($(".hidden").css('display') == "none"){
-		// 		$(".hidden").css('display', 'none');
-		// 	}
-		// }
+    //  Variable that will hold our interval ID when we execute
+    //  the "run" function
+    var intervalId;
 
-	},
-	stop: function () {
-		// if (time === 60){
-			clearInterval(counter);
-		// }
-	},
-	// displayResults: function () {
+    //  When the stop button gets clicked, run the stop function.
+    $("#start").on("click", run);
 
-	// },
-	count: function() {
-		//TODO: increment time by 1, rember we cant use "this" here
+    //  When the resume button gets clicked, execute the run function.
+    $("#stop").on("click", stop);
 
-		stopWatch.time++;
+    //  The run function sets an interval
+    //  that runs the decrement function once a second.
+    function run() {
+    $('.hidden').addClass('show').removeClass('hidden');
+    $('#results').hide();
+      intervalId = setInterval(decrement, 1000);
 
-		//TODO: Get the current time, pass that into the stopwatch.timeConverter
-		//function,
-		//		and save the results in a variable.
-		var converted = stopWatch.timeConverter(stopWatch.time);
+    }
 
-		//TODO: Use the variable you just created to show the converted time in the "display" div.
+    //  The decrement function.
+    function decrement() {
 
-		$("#display").html(converted);
-	},
+      //  Decrease number by one.
+      number--;
 
-	timeConverter: function(t) {
-		//Takes the curretn time in secons 
-		//and conver it to mintes and seconds(mm:ss)
-		var minutes = Math.floor(t/60);
-		var seconds = t - (minutes*60);
-		if(seconds < 10) {
-			seconds = "0" + seconds;
-		}
-		if(minutes === 0) {
-			minutes = "00";
-		}else if(minutes < 10){
-			minutes ="0"+minutes;
-		}
-		return minutes+":"+seconds;
-	}
-};
+      //  Show the number in the #show-number tag.
+      $("#show-number").html("<h2>You have " + number + " seconds</h2>");
 
-function submitAnswers () {
 
-	var total = 5;
+      //  Once number hits zero...
+      if (number === 0) {
+
+        //  ...run the stop function.
+         stop();
+        submitAnswers();
+        //  Alert the user that time is up.
+        // alert("Time Up!");
+      }
+    }
+
+    //  The stop function
+    function stop() {
+	$('.show').addClass('hidden').removeClass('show');
+      //  Clears our intervalId
+      //  We just pass the name of the interval
+      //  to the clearInterval function.
+      clearInterval(intervalId);
+      number = 30;
+      score=0;
+    }
+
+    //  Execute the run function.
+    // run();
+
+
+    function submitAnswers () {
+    	
+    stop();	
+	var total = 16;
 	var score = 0;
+	number = 30;
 
 	//get user input
 
@@ -85,21 +70,32 @@ function submitAnswers () {
 	var q3 = document.forms["quizForm"]["q3"].value;
 	var q4 = document.forms["quizForm"]["q4"].value;
 	var q5 = document.forms["quizForm"]["q5"].value;
+	var q6 = document.forms["quizForm"]["q6"].value;
+	var q7 = document.forms["quizForm"]["q7"].value;
+	var q8 = document.forms["quizForm"]["q8"].value;
+	var q9 = document.forms["quizForm"]["q9"].value;
+	var q10 = document.forms["quizForm"]["q10"].value;
+	var q11 = document.forms["quizForm"]["q11"].value;
+	var q12 = document.forms["quizForm"]["q12"].value;
+	var q13 = document.forms["quizForm"]["q13"].value;
+	var q14 = document.forms["quizForm"]["q14"].value;
+	var q15 = document.forms["quizForm"]["q15"].value;
+	var q16 = document.forms["quizForm"]["q16"].value;
 
 	// validation
 
-	for(i = 1; i <= total; i++){
-		if(eval("q"+ i)  == null || eval("q"+ i) == ''){
-			$("#missed").html("<h3>YOU MISSED QUERSTION <span>"+ i+"</span></h3>");
+	// for(i = 1; i <= total; i++){
+	// 	if(eval("q"+ i)  == null || eval("q"+ i) == ''){
+	// 		$("#missed").html("<h3>YOU MISSED QUERSTION <span>"+ i+"</span></h3>");
 
-			return false;
-		}
+	// 		return false;
+	// 	}
 
-	}
+	// }
 
 
 	//set correct answers
-	var answers = ['d', 'c', 'c', 'd', 'd'];
+	var answers = ['d', 'c', 'c', 'd', 'd', 'c', 'b', 'b', 'd', 'a', 'c', 'a', 'c','d', 'b', 'c'];
 
 	//check answers
 		for(i = 1; i <= total; i++){
@@ -108,12 +104,77 @@ function submitAnswers () {
 			}	
 		}
 		// Display Results
+		$("#results").show();
 		$("#results").html("<h3>YOU SCORED <span>"+score+"</span> OUT OF <span>"+total+"</span></h3>");
+
+		$("input").reset();
 
 		return false;
 
+		
+
 	}
 
+   // }
+    
+
+ $("#submitButton").on("click", function (event) {
+ 		event.preventDefault();
+    	submitAnswers();
+    });
+	
+}); // END READY
 
 
 
+// function submitAnswers () {
+
+// 	var total = 16;
+// 	var score = 0;
+
+// 	//get user input
+
+// 	var q1 = document.forms["quizForm"]["q1"].value;
+// 	var q2 = document.forms["quizForm"]["q2"].value;
+// 	var q3 = document.forms["quizForm"]["q3"].value;
+// 	var q4 = document.forms["quizForm"]["q4"].value;
+// 	var q5 = document.forms["quizForm"]["q5"].value;
+// 	var q6 = document.forms["quizForm"]["q6"].value;
+// 	var q7 = document.forms["quizForm"]["q7"].value;
+// 	var q8 = document.forms["quizForm"]["q8"].value;
+// 	var q9 = document.forms["quizForm"]["q9"].value;
+// 	var q10 = document.forms["quizForm"]["q10"].value;
+// 	var q11 = document.forms["quizForm"]["q11"].value;
+// 	var q12 = document.forms["quizForm"]["q12"].value;
+// 	var q13 = document.forms["quizForm"]["q13"].value;
+// 	var q14 = document.forms["quizForm"]["q14"].value;
+// 	var q15 = document.forms["quizForm"]["q15"].value;
+// 	var q16 = document.forms["quizForm"]["q16"].value;
+
+// 	// validation
+
+// 	for(i = 1; i <= total; i++){
+// 		if(eval("q"+ i)  == null || eval("q"+ i) == ''){
+// 			$("#missed").html("<h3>YOU MISSED QUERSTION <span>"+ i+"</span></h3>");
+
+// 			return false;
+// 		}
+
+// 	}
+
+
+	//set correct answers
+	// var answers = ['d', 'c', 'c', 'd', 'd'];
+
+	// //check answers
+	// 	for(i = 1; i <= total; i++){
+	// 		if(eval("q"+ i)== answers[i-1]) {
+	// 			score++;
+	// 		}	
+	// 	}
+	// 	// Display Results
+	// 	$("#results").html("<h3>YOU SCORED <span>"+score+"</span> OUT OF <span>"+total+"</span></h3>");
+
+	// 	return false;
+
+	// }

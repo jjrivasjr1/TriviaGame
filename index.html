@@ -9,11 +9,16 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-<button id="start">START</button>
-	<button id="stop">STOP</button>
-	<button id="reset">RESET</button>
+<h1><strong>FUTURAMA TRIVIA GAME</strong></h1>
+
+
+	<!-- <button id="reset">RESET</button> -->
 	<div id="missed"></div>
 	<div id="results"></div>
+		<div id="startButton">
+			<button id="start">START</button>
+			<!-- <button id="stop">STOP</button> -->
+		</div>
 <div class="container">
 	
 	
@@ -21,40 +26,109 @@
 	
 
 
-	<form name="quizForm" class="hidden" onsubmit="return submitAnswers()">
-		<div id="display">00:00</div>
-		<h3>1. what year is Philip J. Fry originaly from?</h3>
+	<form name="quizForm" class="hidden">
+		
+		<div id="show-number"></div>
+		<h3>1. What year is Philip J. Fry originaly from?</h3>
 		<input type="radio" name="q1" value="a" id="q1a">a. 1956   
 		<input type="radio" name="q1" value="b" id="q1b">b. 1995   
 		<input type="radio" name="q1" value="c" id="q1c">c. 3000   
 		<input type="radio" name="q1" value="d" id="q1d">d. 2000  
 
-		<h3>2. What what means of transportation did Fry use to save the universe from the brain alien race?</h3>
+		<h3>2. What means of transportation did Fry use to save the universe from the brain alien race?</h3>
 		<input type="radio" name="q2" value="a" id="q2a">a. Ferrari  
 		<input type="radio" name="q2" value="b" id="q2b">b. Planet express ship   
 		<input type="radio" name="q2" value="c" id="q2c">c. Scouty Puffy Sr.   
 		<input type="radio" name="q2" value="d" id="q2d">d. jet pack  
 
-		<h3>3. what kind of robot is Bender</h3>
+		<h3>3. What kind of robot is Bender</h3>
 		<input type="radio" name="q3" value="a" id="q3a">a. assasin   
 		<input type="radio" name="q3" value="b" id="q3b">b. burgler  
 		<input type="radio" name="q3" value="c" id="q3c">c. bending unit  
 		<input type="radio" name="q3" value="d" id="q3d">d. made especially for Fry's friendship 
 
-		<h3>4. how are professor Farnsworth and Fry related?</h3>
+		<h3>4. How are professor Farnsworth and Fry related?</h3>
 		<input type="radio" name="q4" value="a" id="q4a">a. Uncle   
 		<input type="radio" name="q4" value="b" id="q4b">b.grandpa  
 		<input type="radio" name="q4" value="c" id="q4c">c. brother   
 		<input type="radio" name="q4" value="d" id="q4d">d. nephew  
 
-		<h3>5. what is Hermes olymipic sport?</h3>
+		<h3>5. What is Hermes olymipic sport?</h3>
 		<input type="radio" name="q5" value="a" id="q5a">a. track   
 		<input type="radio" name="q5" value="b" id="q5b">b. polevault   
 		<input type="radio" name="q5" value="c" id="q5c">c. swimming   
 		<input type="radio" name="q5" value="d" id="q5d">d. limbo 
+
+		<h3>6. In 'I Second That Emotion' what was the name of the monster in the sewer?</h3>
+		<input type="radio" name="q6" value="a" id="q6a">a. El Chubby   
+		<input type="radio" name="q6" value="b" id="q6b">b. El Chusewer   
+		<input type="radio" name="q6" value="c" id="q6c">c. El Chubanebre  
+		<input type="radio" name="q6" value="d" id="q6d">d. El Chugoheybre 
+
+		<h3>7. In 'Brannigan, Begin Again' what extremely heavy objects are the crew taking to a hotel?</h3>
+		<input type="radio" name="q7" value="a" id="q7a">a. Bricks   
+		<input type="radio" name="q7" value="b" id="q7b">b. Pillows   
+		<input type="radio" name="q7" value="c" id="q7c">c. Laser Guns  
+		<input type="radio" name="q7" value="d" id="q7d">d. Spoons 
+
+		<h3>8. In 'A Head In The Polls' what are the names of the clone candidates?</h3>
+		<input type="radio" name="q8" value="a" id="q8a">a. John Joeson and Joe Johnson   
+		<input type="radio" name="q8" value="b" id="q8b">b. Jack Johnson and John Jackson   
+		<input type="radio" name="q8" value="c" id="q8c">c. James Johnson and John Jameson   
+		<input type="radio" name="q8" value="d" id="q8d">d. Joe Jackson and Jack Joeson 
+
+		<h3>9.In 'Xmas Story' what trees are used as Xmas trees?</h3>
+		<input type="radio" name="q9" value="a" id="q9a">a. Green Tree   
+		<input type="radio" name="q9" value="b" id="q9b">b. Pine Tree   
+		<input type="radio" name="q9" value="c" id="q9c">c. Oak Tree   
+		<input type="radio" name="q9" value="d" id="q9d">d. Palm Tree
+
+		<h3>10. In 'Why Must I Be A Crustacean In Love' what race is Dr Zoidberg?</h3>
+		<input type="radio" name="q10" value="a" id="q10a">a. Decapodian   
+		<input type="radio" name="q10" value="b" id="q10b">b. Pentapodian  
+		<input type="radio" name="q10" value="c" id="q10c">c. Octapodian   
+		<input type="radio" name="q10" value="d" id="q10d">d. Lobster 
+
+		<h3>11. In 'The Lesser Of Two Evils' who presents the Miss Universe Pageant?</h3>
+		<input type="radio" name="q11" value="a" id="q11a">a. Zap Brannigan
+		<input type="radio" name="q11" value="b" id="q11b">b. Richard Nixon  
+		<input type="radio" name="q11" value="c" id="q11c">c. Bob Barker   
+		<input type="radio" name="q11" value="d" id="q11d">d. Calculon 
+
+		<h3>12. In 'Put Your Head On My Shoulders' what car did the salesman show Fry?</h3>
+		<input type="radio" name="q12" value="a" id="q12a">a. ThunderCougarFalconBird   
+		<input type="radio" name="q12" value="b" id="q12b">b. Porsche 9111111  
+		<input type="radio" name="q12" value="c" id="q12c">c. Alpha Romayo   
+		<input type="radio" name="q12" value="d" id="q12d">d. Planet Express Ship 
+
+		<h3>13. In 'Raging Bender' who was SECOND opponent?</h3>
+		<input type="radio" name="q13" value="a" id="q13a">a. Millionaire Bot  
+		<input type="radio" name="q13" value="b" id="q13b">b. Destructor  
+		<input type="radio" name="q13" value="c" id="q13c">c. Chain Smoker   
+		<input type="radio" name="q13" value="d" id="q13d">d. Flexo 
+
+		<h3>14. In 'A Bicyclops Built For Two' what animals where Alcazars friends?</h3>
+		<input type="radio" name="q14" value="a" id="q14a">a. Two Mouse and a Worthogs   
+		<input type="radio" name="q14" value="b" id="q14b">b. A Warthog and a Mouse  
+		<input type="radio" name="q14" value="c" id="q14c">c. Two Pigs and a Rat   
+		<input type="radio" name="q14" value="d" id="q14d">d. Two Rats and a Pig 
+
+		<h3>15.In 'A Clone Of My Own' what machine did Farnsworth use to make a clone?</h3>
+		<input type="radio" name="q15" value="a" id="q15a">a. Clonebuilder 2500   
+		<input type="radio" name="q15" value="b" id="q15b">b. Clone'o'matic  
+		<input type="radio" name="q15" value="c" id="q15c">c. Clone'a'matic 8000   
+		<input type="radio" name="q15" value="d" id="q15d">d. Clonemaker 7000 
+
+		<h3>16.In 'How Hermes Requisitioned His Groove Back' what number Bureaucrat was Hermes in the beginning?</h3>
+		<input type="radio" name="q16" value="a" id="q16a">a. 38   
+		<input type="radio" name="q16" value="b" id="q16b">b. 37  
+		<input type="radio" name="q16" value="c" id="q16c">c. 36   
+		<input type="radio" name="q16" value="d" id="q16d">d. 34 
 		<br><br>
-		<input type="submit" value="Submit Answers">
+		<input type="submit" value="Submit Answers" id="submitButton">
 		</form>
+
+
 
 </div>
 

@@ -1,10 +1,20 @@
 body{
-	/*background-image: url("https://vignette.wikia.nocookie.net/en.futurama/images/1/1f/Futurama-cast.png/revision/latest/scale-to-width-down/963?cb=20150208160932");*/
+	background-image: url("https://vignette.wikia.nocookie.net/en.futurama/images/1/1f/Futurama-cast.png/revision/latest/scale-to-width-down/963?cb=20150208160932");
 	background-repeat: no-repeat;
 	background-size: cover;
 	justify-content: center;
 	text-align:center;
-	color:blue;
+	color:grey;
+}
+
+h1{
+	color:red;
+}
+.startButton{
+	background-color:green;
+	height:500px;
+	width:500px;
+	margin-top:50%;
 }
 
 .container {
@@ -13,11 +23,14 @@ body{
 }
 
 #missed {
-	color:red;
+	background-color:green;
+	color:gray;
 }
 
 #results {
-	color:red;
+	background-color:green;
+	color:gray;
+
 }
 /*.hidden{*/
 	/*display:none;*/
